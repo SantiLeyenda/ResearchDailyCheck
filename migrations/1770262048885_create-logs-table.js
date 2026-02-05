@@ -9,7 +9,7 @@ exports.up = (pgm) => {
         did: { type: 'text' },
         blockers: { type: 'text' },
         todo: { type: 'text' },
-        minuteSpent: {
+        minutespent: {
             type: 'integer',
             notNull: true
         },

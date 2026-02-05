@@ -12,7 +12,7 @@ exports.up = (pgm) => {
             type: 'varchar(50)',
             default: 'planned'
         },
-        startedOn: { type: 'date' },
+        startedon: { type: 'date' },
         created_at: {
             type: 'timestamp',
             notNull: true,
@@ -24,7 +24,6 @@ exports.up = (pgm) => {
             default: pgm.func('current_timestamp')
         }
     });
-
     
     pgm.createIndex('experiments', 'status');
     pgm.createIndex('experiments', 'created_at');
