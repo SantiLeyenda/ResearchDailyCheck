@@ -1,0 +1,25 @@
+{
+  "name": "researchdailycheck",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "start": "node server.js",
+    "migrate:up": "node -r dotenv/config node_modules/.bin/node-pg-migrate up",
+    "migrate:down": "node -r dotenv/config node_modules/.bin/node-pg-migrate down",
+    "migrate:create": "node-pg-migrate create"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "express": "^5.2.1",
+    "mongoose": "^9.1.5",
+    "dotenv": "^16.4.5"
+  },
+  "devDependencies": {
+    "node-pg-migrate": "^8.0.4",
+    "nodemon": "^3.1.11"
+  }
+}
