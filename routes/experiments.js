@@ -8,8 +8,7 @@ function isValidDate(dateString){
     return !isNaN(date.getTime());
 }
 
-
-// POST
+// POST /experiments
 router.post("/", async (req, res, next) => { 
     try {
         const {title, hypothesis, approach, config, startedon} = req.body;
@@ -40,7 +39,7 @@ router.post("/", async (req, res, next) => {
     }
 });
 
-// GET with pagination
+// GET /experiments with pagination
 router.get("/", async (req, res, next) => {
     try {
         const limit = parseInt(req.query.limit) || 10;
@@ -53,7 +52,6 @@ router.get("/", async (req, res, next) => {
 
         let query, params;
 
- 
         if (cursor && status) {
             query = `
                 SELECT * FROM experiments 
@@ -109,7 +107,7 @@ router.get("/", async (req, res, next) => {
     }
 });
 
-// PATCH
+// PATCH /experiments/:id
 router.patch("/:id", async (req, res, next) => {
     try {
         const {id} = req.params; 
@@ -143,8 +141,8 @@ router.patch("/:id", async (req, res, next) => {
     }
 });
 
-// DELETE
-router.delete("/id", async (req, res, next) => { 
+// DELETE /experiments/:id
+router.delete("/:id", async (req, res, next) => { 
     try {
         const {id} = req.params; 
 
