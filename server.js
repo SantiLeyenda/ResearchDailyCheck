@@ -9,7 +9,7 @@ const app = express();
 
 app.use(express.json());
 
-app.use("/logs", logsRouter);
+app.use("/daily-logs", logsRouter);
 app.use("/experiments", experimentsRouter);
 
 

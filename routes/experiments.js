@@ -10,7 +10,7 @@ function isValidDate(dateString){
 
 
 // POST
-router.post("/experiments", async (req, res, next) => { 
+router.post("/", async (req, res, next) => { 
     try {
         const {title, hypothesis, approach, config, startedOn} = req.body;
         const status = req.body.status || "planned";
@@ -41,7 +41,7 @@ router.post("/experiments", async (req, res, next) => {
 });
 
 // GET with pagination
-router.get("/experiments", async (req, res, next) => {
+router.get("/", async (req, res, next) => {
     try {
         const limit = parseInt(req.query.limit) || 10;
         const cursor = req.query.cursor; 
@@ -110,7 +110,7 @@ router.get("/experiments", async (req, res, next) => {
 });
 
 // PATCH
-router.patch("/experiments/:id", async (req, res, next) => {
+router.patch("/:id", async (req, res, next) => {
     try {
         const {id} = req.params; 
         const {title, hypothesis, approach, config, startedOn} = req.body;
@@ -144,7 +144,7 @@ router.patch("/experiments/:id", async (req, res, next) => {
 });
 
 // DELETE
-router.delete("/experiments/:id", async (req, res, next) => { 
+router.delete("/id", async (req, res, next) => { 
     try {
         const {id} = req.params; 
 

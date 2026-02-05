@@ -20,7 +20,7 @@ function validateDateParam(req,res,next){
     next();
 }
 
-router.post("/daily-logs", async (req, res, err) => {
+router.post("/", async (req, res, err) => {
 
     try {
 
@@ -63,7 +63,7 @@ router.post("/daily-logs", async (req, res, err) => {
 
 
 
-router.get("daily-logs/:date", validateDateParam, async (req, res, err) => {
+router.get("/:date", validateDateParam, async (req, res, err) => {
 
 
     
@@ -100,7 +100,7 @@ router.get("daily-logs/:date", validateDateParam, async (req, res, err) => {
 
 
 
-router.get("/daily-logs", async (req, res, err) => {
+router.get("/", async (req, res, err) => {
 
      
 
@@ -142,7 +142,7 @@ router.get("/daily-logs", async (req, res, err) => {
 })
 
 
-router.patch("/daily-logs/:date", validateDateParam, async (req, res, err) => {
+router.patch("/:date", validateDateParam, async (req, res, err) => {
 
     try {
 
@@ -185,7 +185,7 @@ router.patch("/daily-logs/:date", validateDateParam, async (req, res, err) => {
 
 
 
-router.delete("/daily-logs/:date", validateDateParam, async (req, res, err) => {
+router.delete("/:date", validateDateParam, async (req, res, err) => {
 
     
     try {
