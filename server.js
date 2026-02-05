@@ -1,4 +1,4 @@
-require('dotenv').config(); // Add this at the very top
+require('dotenv').config(); 
 
 const express = require("express");
 const logsRouter = require("./routes/logs");
