@@ -24,7 +24,7 @@ router.post("/", async (req, res, err) => {
 
     try {
 
-        const {date, did, blockers, todo, minuteSpent, mood} = req.body;
+        const {date, did, blockers, todo, minutespent, mood} = req.body;
 
         if (!isValidDate(date)){
 
@@ -33,9 +33,9 @@ router.post("/", async (req, res, err) => {
         }
 
 
-        if (minuteSpent === undefined || minuteSpent === null){
+        if (minutespent === undefined || minutespent === null){
 
-            return res.status(400).json({error: "minuteSpent is required"});
+            return res.status(400).json({error: "minutespent is required"});
 
         }
 
@@ -46,8 +46,8 @@ router.post("/", async (req, res, err) => {
 
 
         const { rows } = await pool.query(
-            `INSERT INTO logs (date, did, blockers, todo, minuteSpent, mood) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *`, 
-            [date, did, blockers, todo, minuteSpent, mood]
+            `INSERT INTO logs (date, did, blockers, todo, minutespent, mood) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *`, 
+            [date, did, blockers, todo, minutespent, mood]
         );
 
         res.status(201).json(rows[0]);
@@ -147,10 +147,10 @@ router.patch("/:date", validateDateParam, async (req, res, err) => {
     try {
 
         const {date} = req.params;
-        const { did, blockers, todo, minuteSpent, mood} = req.body;
+        const { did, blockers, todo, minutespent, mood} = req.body;
 
-        if (minuteSpent === undefined || minuteSpent === null){
-            return res.status(400).json({error: "minuteSpent is required"});
+        if (minutespent === undefined || minutespent === null){
+            return res.status(400).json({error: "minutespent is required"});
         }
 
     
@@ -158,10 +158,10 @@ router.patch("/:date", validateDateParam, async (req, res, err) => {
 
         const { rows } = await pool.query(
             `UPDATE logs 
-             SET did = $1, blockers = $2, todo = $3, minuteSpent = $4, mood = $5
+             SET did = $1, blockers = $2, todo = $3, minutespent = $4, mood = $5
              WHERE date = $6
              RETURNING *`,
-            [did, blockers, todo, minuteSpent, mood, date]
+            [did, blockers, todo, minutespent, mood, date]
         );
 
         if (rows.length === 0) {

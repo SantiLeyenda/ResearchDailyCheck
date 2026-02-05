@@ -12,7 +12,7 @@ function isValidDate(dateString){
 // POST
 router.post("/", async (req, res, next) => { 
     try {
-        const {title, hypothesis, approach, config, startedOn} = req.body;
+        const {title, hypothesis, approach, config, startedon} = req.body;
         const status = req.body.status || "planned";
 
         if (!title) {
@@ -24,10 +24,10 @@ router.post("/", async (req, res, next) => {
         }
 
         const { rows } = await pool.query(
-            `INSERT INTO experiments (title, hypothesis, approach, config, status, startedOn) 
+            `INSERT INTO experiments (title, hypothesis, approach, config, status, startedon) 
              VALUES ($1, $2, $3, $4, $5, $6) 
              RETURNING *`, 
-            [title, hypothesis, approach, config, status, startedOn]
+            [title, hypothesis, approach, config, status, startedon]
         );
 
         res.status(201).json(rows[0]);
@@ -113,7 +113,7 @@ router.get("/", async (req, res, next) => {
 router.patch("/:id", async (req, res, next) => {
     try {
         const {id} = req.params; 
-        const {title, hypothesis, approach, config, startedOn} = req.body;
+        const {title, hypothesis, approach, config, startedon} = req.body;
         const status = req.body.status || "planned";
 
         if (!title) {
@@ -126,10 +126,10 @@ router.patch("/:id", async (req, res, next) => {
 
         const { rows } = await pool.query(
             `UPDATE experiments 
-             SET title = $1, hypothesis = $2, approach = $3, config = $4, status = $5, startedOn = $6
+             SET title = $1, hypothesis = $2, approach = $3, config = $4, status = $5, startedon = $6
              WHERE id = $7 
              RETURNING *`, 
-            [title, hypothesis, approach, config, status, startedOn, id]
+            [title, hypothesis, approach, config, status, startedon, id]
         );
 
         if (rows.length === 0) {
