@@ -11,7 +11,9 @@ Given that it is running in a free Render tier, it takes about 30 seconds for th
 
 https://researchdailycheck.onrender.com
 
-Tech-stack: Node.js, Express, PostgreSQL, Railway, Render, node-pg-migrate
+# Tech-stack:
+
+Node.js, Express, PostgreSQL, Railway, Render, node-pg-migrate
 
 # API ENDPOINTS: 
 
