@@ -1,10 +1,19 @@
-Research Daily Check: REST API for tracking daily research logs and experiments
+# Research Daily Check: REST API for tracking daily research logs and experiments
 
-Demo Link: https://researchdailycheck.onrender.com
+# Purpose: 
+this project was made to have order when it comes to testing AI models and have a sense of what needs to improve, what results were obtained and what is stopping the project from continuing. 
+
+# IMPORTANT
+
+Given that it is running in a free Render tier, it takes about 30 seconds for the app to wake up. 
+
+# Demo Link: 
+
+https://researchdailycheck.onrender.com
 
 Tech-stack: Node.js, Express, PostgreSQL, Railway, Render, node-pg-migrate
 
-API ENDPOINTS: 
+# API ENDPOINTS: 
 
 Experiments:
 
@@ -22,7 +31,7 @@ GET /daily-logs?from=&to= — date range query
 PATCH /daily-logs/:date — update
 DELETE /daily-logs/:date — delete
 
-Local set up instructions: 
+# Local set up instructions: 
 
 1. Clone
 2. npm install
@@ -31,7 +40,7 @@ Local set up instructions:
 5. npm run dev
 
 
-Some CURL commands to try: 
+# Some CURL commands to try: 
 
   Create an experiment: 
 
